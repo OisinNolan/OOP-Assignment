@@ -1,14 +1,17 @@
 #include "Trajet.h"
 #include "TrajetSimple.h"
+#include "ListTrajet.h"
 
 int main (  )
 {
-    Trajet t0 ( "Paris", "Lille" );
-    t0.afficher(  );
+    Trajet * t0 = new Trajet( "Paris", "Lille" );
+    TrajetSimple * t1 = new TrajetSimple( "Paris", "Lille", "Voiture" );
     
-    TrajetSimple t1 ( "Paris", "Lille", "Voiture" );
-    t1.afficher(  );
-    return 0;
-    
+    ListTrajet * list = new ListTrajet();
+    list->push(t0);
+    list->push(t1);
+    list->print();
+
+
     return 0;
 }
