@@ -1,5 +1,5 @@
 /*************************************************************************
-                           TrajetCompose  -  commune pour les TrajetComposes simples et les TrajetComposes composés
+                           TrajetCompose  -  description
                              -------------------
     début                : $DATE$
     copyright            : (C) $YEAR$ par $AUTHOR$
@@ -30,36 +30,15 @@ class TrajetCompose : public Trajet
 public:
 //----------------------------------------------------- Méthodes publiques
     void afficher (  );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
 
 //------------------------------------------------- Surcharge d'opérateurs
-    Xxx & operator = ( const Xxx & unXxx );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
 
 //-------------------------------------------- Constructeurs - destructeur
     TrajetCompose ( const TrajetCompose & unTrajetCompose );
-    // Mode d'emploi (constructeur de copie) :
-    //
-    // Contrat :
-    //
 
     TrajetCompose ( );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
 
     virtual ~TrajetCompose ( );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
 
 //------------------------------------------------------------------ PRIVE
 
@@ -74,4 +53,3 @@ protected:
 //-------------------------------- Autres définitions dépendantes de <TrajetCompose>
 
 #endif // TrajetCompose_H
-

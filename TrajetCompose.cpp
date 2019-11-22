@@ -22,57 +22,35 @@ using namespace std;
 //----------------------------------------------------------------- PUBLIC
 
 //----------------------------------------------------- Méthodes publiques
-// type TrajetCompose::Méthode ( liste des paramètres )
-// Algorithme :
-//
-//{
-//} //----- Fin de Méthode
-
 
 //------------------------------------------------- Surcharge d'opérateurs
-TrajetCompose & TrajetCompose::operator = ( const TrajetCompose & unTrajetCompose )
-// Algorithme :
-//
-{
-} //----- Fin de operator =
-
 
 //-------------------------------------------- Constructeurs - destructeur
-TrajetCompose::TrajetCompose ( const TrajetCompose & unTrajetCompose )
-// Algorithme :
-//
+/*TrajetCompose::TrajetCompose ( const TrajetCompose & unTrajetCompose )
 {
     villeDepart = unTrajetCompose.villeDepart;
     villeArrivee = unTrajetCompose.villeArrivee;
-#ifdef MAP
-    cout << "Appel au constructeur de copie de <TrajetCompose>" << endl;
-#endif
-} //----- Fin de TrajetCompose (constructeur de copie)
-
+    #ifdef MAP
+        cout << "Appel au constructeur de copie de <TrajetCompose>" << endl;
+    #endif
+}*/
 
 TrajetCompose::TrajetCompose ( char *villeDepart, char *villeArrivee )
-// Algorithme :
-//
 {
     villeDepart = villeDepart;
     villeArrivee = villeArrivee;
-#ifdef MAP
-    cout << "Appel au constructeur de <TrajetCompose>" << endl;
-#endif
-} //----- Fin de TrajetCompose
-
+    #ifdef MAP
+        cout << "Appel au constructeur de <TrajetCompose>" << endl;
+    #endif
+}
 
 TrajetCompose::~TrajetCompose ( )
-// Algorithme :
-//
 {
-#ifdef MAP
-    cout << "Appel au destructeur de <TrajetCompose>" << endl;
-#endif
-} //----- Fin de ~TrajetCompose
-
+    #ifdef MAP
+        cout << "Appel au destructeur de <TrajetCompose>" << endl;
+    #endif
+}
 
 //------------------------------------------------------------------ PRIVE
 
 //----------------------------------------------------- Méthodes protégées
-

@@ -34,7 +34,7 @@ void TrajetSimple::afficher (  )
 //-------------------------------------------- Constructeurs - destructeur
 /*TrajetSimple::TrajetSimple ( const TrajetSimple & unTrajetSimple )
 {
-    super ( unTrajetSimple.villeDepart, unTrajetSimple.villeArrivee );
+    Trajet ( unTrajetSimple.villeDepart, unTrajetSimple.villeArrivee );   
     this->modeTransport = unTrajetSimple.modeTransport;
     #ifdef MAP
         cout << "Appel au constructeur de copie de <TrajetSimple>" << endl;
