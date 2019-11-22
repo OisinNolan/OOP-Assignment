@@ -41,7 +41,7 @@ void TrajetSimple::afficher (  )
     #endif
 }*/
 
-TrajetSimple::TrajetSimple ( char *villeDepart, char *villeArrivee, char *modeTransport ) : Trajet ( villeDepart, villeArrivee ), modeTransport ( modeTransport )
+TrajetSimple::TrajetSimple ( const char *villeDepart, const char *villeArrivee, const char *modeTransport ) : Trajet ( villeDepart, villeArrivee ), modeTransport ( modeTransport )
 {
     #ifdef MAP
         cout << "Appel au constructeur de <TrajetSimple>" << endl;

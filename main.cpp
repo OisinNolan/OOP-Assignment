@@ -3,10 +3,10 @@
 
 int main (  )
 {
-    Trajet t0 ( (char *) "Paris", (char *) "Lille" );
+    Trajet t0 ( "Paris", "Lille" );
     t0.afficher(  );
     
-    TrajetSimple t1 ( (char *) "Paris", (char *) "Lille", (char *) "Voiture" );
+    TrajetSimple t1 ( "Paris", "Lille", "Voiture" );
     t1.afficher(  );
     return 0;
     

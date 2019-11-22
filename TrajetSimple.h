@@ -36,7 +36,7 @@ public:
 //-------------------------------------------- Constructeurs - destructeur
     //TrajetSimple ( const TrajetSimple & unTrajetSimple );
 
-    TrajetSimple ( char *villeDepart, char *villeArrivee, char *modeTransport );
+    TrajetSimple ( const char *villeDepart, const char *villeArrivee, const char *modeTransport );
 
     virtual ~TrajetSimple ( );
 
@@ -46,7 +46,7 @@ protected:
 //----------------------------------------------------- Méthodes protégées
 
 //----------------------------------------------------- Attributs protégés
-    char *modeTransport;
+    const char *modeTransport;
 
 };
 

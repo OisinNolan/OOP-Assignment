@@ -36,7 +36,7 @@ public:
 //-------------------------------------------- Constructeurs - destructeur
     Trajet ( const Trajet & unTrajet );
 
-    Trajet ( char *villeDepart, char *villeArrivee );
+    Trajet ( const char *villeDepart, const char *villeArrivee );
 
     virtual ~Trajet ( );
 
@@ -46,8 +46,8 @@ protected:
 //----------------------------------------------------- Méthodes protégées
 
 //----------------------------------------------------- Attributs protégés
-    char *villeDepart;
-    char *villeArrivee;
+    const char *villeDepart;
+    const char *villeArrivee;
 
 };
 

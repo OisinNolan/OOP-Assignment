@@ -41,7 +41,7 @@ Trajet::Trajet ( const Trajet & unTrajet )
     #endif
 }
 
-Trajet::Trajet ( char *villeDepart, char *villeArrivee )
+Trajet::Trajet ( const char *villeDepart, const char *villeArrivee )
 {
     this->villeDepart = villeDepart;
     this->villeArrivee = villeArrivee;
