@@ -22,57 +22,39 @@ using namespace std;
 //----------------------------------------------------------------- PUBLIC
 
 //----------------------------------------------------- Méthodes publiques
-// type TrajetSimple::Méthode ( liste des paramètres )
-// Algorithme :
-//
-//{
-//} //----- Fin de Méthode
-
+void TrajetSimple::afficher (  )
+{
+    cout << "Ville départ : " << villeDepart << "\n";
+    cout << "Ville arrivée : " << villeArrivee << "\n";
+    cout << "Moyen de transport : " << modeTransport << "\n";
+}
 
 //------------------------------------------------- Surcharge d'opérateurs
-TrajetSimple & TrajetSimple::operator = ( const TrajetSimple & unTrajetSimple )
-// Algorithme :
-//
-{
-} //----- Fin de operator =
-
 
 //-------------------------------------------- Constructeurs - destructeur
-TrajetSimple::TrajetSimple ( const TrajetSimple & unTrajetSimple )
-// Algorithme :
-//
+/*TrajetSimple::TrajetSimple ( const TrajetSimple & unTrajetSimple )
 {
-    villeDepart = unTrajetSimple.villeDepart;
-    villeArrivee = unTrajetSimple.villeArrivee;
-#ifdef MAP
-    cout << "Appel au constructeur de copie de <TrajetSimple>" << endl;
-#endif
-} //----- Fin de TrajetSimple (constructeur de copie)
+    super ( unTrajetSimple.villeDepart, unTrajetSimple.villeArrivee );
+    this->modeTransport = unTrajetSimple.modeTransport;
+    #ifdef MAP
+        cout << "Appel au constructeur de copie de <TrajetSimple>" << endl;
+    #endif
+}*/
 
-
-TrajetSimple::TrajetSimple ( char *villeDepart, char *villeArrivee )
-// Algorithme :
-//
+TrajetSimple::TrajetSimple ( char *villeDepart, char *villeArrivee, char *modeTransport ) : Trajet ( villeDepart, villeArrivee ), modeTransport ( modeTransport )
 {
-    villeDepart = villeDepart;
-    villeArrivee = villeArrivee;
-#ifdef MAP
-    cout << "Appel au constructeur de <TrajetSimple>" << endl;
-#endif
-} //----- Fin de TrajetSimple
-
+    #ifdef MAP
+        cout << "Appel au constructeur de <TrajetSimple>" << endl;
+    #endif
+}
 
 TrajetSimple::~TrajetSimple ( )
-// Algorithme :
-//
 {
-#ifdef MAP
-    cout << "Appel au destructeur de <TrajetSimple>" << endl;
-#endif
-} //----- Fin de ~TrajetSimple
-
+    #ifdef MAP
+        cout << "Appel au destructeur de <TrajetSimple>" << endl;
+    #endif
+}
 
 //------------------------------------------------------------------ PRIVE
 
 //----------------------------------------------------- Méthodes protégées
-

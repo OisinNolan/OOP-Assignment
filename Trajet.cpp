@@ -34,8 +34,8 @@ void Trajet::afficher (  )
 //-------------------------------------------- Constructeurs - destructeur
 Trajet::Trajet ( const Trajet & unTrajet )
 {
-    villeDepart = unTrajet.villeDepart;
-    villeArrivee = unTrajet.villeArrivee;
+    this->villeDepart = unTrajet.villeDepart;
+    this->villeArrivee = unTrajet.villeArrivee;
     #ifdef MAP
         cout << "Appel au constructeur de copie de <Trajet>" << endl;
     #endif

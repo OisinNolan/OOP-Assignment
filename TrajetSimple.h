@@ -1,5 +1,5 @@
 /*************************************************************************
-                           TrajetSimple  -  commune pour les TrajetSimples simples et les TrajetSimples composés
+                           TrajetSimple  -  description
                              -------------------
     début                : $DATE$
     copyright            : (C) $YEAR$ par $AUTHOR$
@@ -30,16 +30,11 @@ class TrajetSimple : public Trajet
 public:
 //----------------------------------------------------- Méthodes publiques
     void afficher (  );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
 
 //------------------------------------------------- Surcharge d'opérateurs
 
-
 //-------------------------------------------- Constructeurs - destructeur
-    TrajetSimple ( const TrajetSimple & unTrajetSimple );
+    //TrajetSimple ( const TrajetSimple & unTrajetSimple );
 
     TrajetSimple ( char *villeDepart, char *villeArrivee, char *modeTransport );
 
@@ -58,4 +53,3 @@ protected:
 //-------------------------------- Autres définitions dépendantes de <TrajetSimple>
 
 #endif // TrajetSimple_H
-
