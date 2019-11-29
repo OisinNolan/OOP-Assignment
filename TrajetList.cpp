@@ -1,7 +1,7 @@
-#include "TrajetList.h"
 #include <iostream>
-
 using namespace std;
+
+#include "TrajetList.h"
 
 TrajetList::TrajetList() {
     Node *node = nullptr;
@@ -51,5 +51,4 @@ void TrajetList::afficher() {
         }
         current = current->next;
     }
-    cout << "\n";
 }

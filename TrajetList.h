@@ -1,3 +1,6 @@
+#if ! defined ( TRAJETLIST_H )
+#define TRAJETLIST_H
+
 #include "Trajet.h"
 #include "Node.h"
 
@@ -12,3 +15,5 @@ class TrajetList {
         Trajet * dernier();
         void afficher();
 };
+
+#endif // TrajetList_H

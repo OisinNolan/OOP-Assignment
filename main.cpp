@@ -1,6 +1,7 @@
-#include "Trajet.h"
-#include "TrajetSimple.h"
-#include "TrajetCompose.h"
+//#include "Trajet.h"
+//#include "TrajetSimple.h"
+//#include "TrajetCompose.h"
+#include "Catalogue.h"
 // juste pour les tests
 using namespace std;
 #include <iostream>
@@ -8,7 +9,7 @@ using namespace std;
 
 int main (  )
 {
-    Trajet * t0 = new Trajet( "A", "B" );
+    /*Trajet * t0 = new Trajet( "A", "B" );
     TrajetSimple * t1 = new TrajetSimple( "C", "D", "MT1" );
     Trajet * t2 = new Trajet( "E", "F" );
     Trajet * t3 = new Trajet( "G", "H" );
@@ -19,11 +20,19 @@ int main (  )
     trajets->ajouterQueue(t2);
     trajets->ajouterQueue(t3);
     trajets->afficher();
-    /*cout << "#####\n";
+    cout << "#####\n";
     trajets->dernier()->getVilleArrivee();
 
     TrajetCompose * t4 = new TrajetCompose( trajets );
     t4->afficher();*/
+
+    Catalogue *catalogue = new Catalogue();
+    cout << "AJOUT TRAJET SIMPLE\n";
+    catalogue->ajouterTrajetSimple();
+    catalogue->listerTrajets();
+    cout << "AJOUT TRAJET COMPOSÉ\n";
+    catalogue->ajouterTrajetCompose();
+    catalogue->listerTrajets();
 
     return 0;
 }

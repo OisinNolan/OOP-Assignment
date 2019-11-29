@@ -11,8 +11,9 @@
 //---------------------------------------------------------------- INCLUDE
 
 //-------------------------------------------------------- Include système
-using namespace std;
 #include <iostream>
+using namespace std;
+#include <cstring>
 
 //------------------------------------------------------ Include personnel
 #include "TrajetSimple.h"
@@ -39,11 +40,14 @@ void TrajetSimple::afficher (  )
     #endif
 }*/
 
-TrajetSimple::TrajetSimple ( const char *villeDepart, const char *villeArrivee, const char *modeTransport ) : Trajet ( villeDepart, villeArrivee ), modeTransport ( modeTransport )
+TrajetSimple::TrajetSimple ( const char *villeDepart, const char *villeArrivee, const char *modeTransport ) : Trajet ( villeDepart, villeArrivee )
 {
     #ifdef MAP
         cout << "Appel au constructeur de <TrajetSimple>" << endl;
     #endif
+    char *tempModeTransport = new char[strlen(modeTransport)];
+    strcpy(tempModeTransport, modeTransport);
+    this->modeTransport = tempModeTransport;
 }
 
 TrajetSimple::~TrajetSimple ( )

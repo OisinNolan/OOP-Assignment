@@ -12,12 +12,14 @@
 
 //-------------------------------------------------------- Include système
 #include <iostream>
+using namespace std;
+#include <cstring>
 
 //------------------------------------------------------ Include personnel
 #include "Trajet.h"
 
 //------------------------------------------------------------- Constantes
-using namespace std;
+
 //----------------------------------------------------------------- PUBLIC
 
 //----------------------------------------------------- Méthodes publiques
@@ -51,8 +53,12 @@ Trajet::Trajet ( const Trajet & unTrajet )
 
 Trajet::Trajet ( const char *villeDepart, const char *villeArrivee )
 {
-    this->villeDepart = villeDepart;
-    this->villeArrivee = villeArrivee;
+    char *tempVilleDepart = new char[strlen(villeDepart)];
+    strcpy(tempVilleDepart, villeDepart);
+    this->villeDepart = tempVilleDepart;
+    char *tempVilleArrivee = new char[strlen(villeArrivee)];
+    strcpy(tempVilleArrivee, villeArrivee);
+    this->villeArrivee = tempVilleArrivee;
     #ifdef MAP
         cout << "Appel au constructeur de <Trajet>" << endl;
     #endif

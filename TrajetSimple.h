@@ -29,7 +29,7 @@ class TrajetSimple : public Trajet
 
 public:
 //----------------------------------------------------- Méthodes publiques
-    void afficher (  );
+    virtual void afficher (  );
 
 //------------------------------------------------- Surcharge d'opérateurs
 
