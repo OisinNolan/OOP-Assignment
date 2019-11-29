@@ -22,6 +22,10 @@ using namespace std;
 //----------------------------------------------------------------- PUBLIC
 
 //----------------------------------------------------- Méthodes publiques
+void TrajetCompose::afficher (  )
+{
+    trajets->afficher();
+}
 
 //------------------------------------------------- Surcharge d'opérateurs
 
@@ -35,10 +39,8 @@ using namespace std;
     #endif
 }*/
 
-TrajetCompose::TrajetCompose ( char *villeDepart, char *villeArrivee )
+TrajetCompose::TrajetCompose ( TrajetList *trajets ) : Trajet ( trajets->premier()->getVilleDepart(), trajets->dernier()->getVilleArrivee() ), trajets ( trajets )
 {
-    villeDepart = villeDepart;
-    villeArrivee = villeArrivee;
     #ifdef MAP
         cout << "Appel au constructeur de <TrajetCompose>" << endl;
     #endif

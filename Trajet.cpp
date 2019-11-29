@@ -23,8 +23,17 @@ using namespace std;
 //----------------------------------------------------- Méthodes publiques
 void Trajet::afficher (  )
 {
-    cout << "Ville départ : " << villeDepart << "\n";
-    cout << "Ville arrivée : " << villeArrivee << "\n";
+    cout << "de " << villeDepart << " à " << villeArrivee;
+}
+
+const char * Trajet::getVilleDepart (  )
+{
+    return this->villeDepart;
+}
+
+const char * Trajet::getVilleArrivee (  )
+{
+    return this->villeArrivee;
 }
 
 //------------------------------------------------- Surcharge d'opérateurs

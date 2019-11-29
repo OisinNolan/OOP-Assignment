@@ -11,21 +11,20 @@
 //---------------------------------------------------------------- INCLUDE
 
 //-------------------------------------------------------- Include système
+using namespace std;
 #include <iostream>
 
 //------------------------------------------------------ Include personnel
 #include "TrajetSimple.h"
 
 //------------------------------------------------------------- Constantes
-using namespace std;
+
 //----------------------------------------------------------------- PUBLIC
 
 //----------------------------------------------------- Méthodes publiques
 void TrajetSimple::afficher (  )
 {
-    cout << "Ville départ : " << villeDepart << "\n";
-    cout << "Ville arrivée : " << villeArrivee << "\n";
-    cout << "Moyen de transport : " << modeTransport << "\n";
+    cout << "de " << villeDepart << " à " << villeArrivee << " en " << modeTransport;
 }
 
 //------------------------------------------------- Surcharge d'opérateurs

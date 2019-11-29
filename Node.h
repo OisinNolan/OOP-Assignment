@@ -2,6 +2,6 @@
 
 class Node {
     public:
-        Trajet * trajet;
-        Node * next;
+        Trajet *trajet;
+        Node *next;
 };

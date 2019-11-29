@@ -12,6 +12,7 @@
 
 //--------------------------------------------------- Interfaces utilisées
 #include "Trajet.h"
+#include "TrajetList.h"
 
 //------------------------------------------------------------- Constantes
 
@@ -34,9 +35,9 @@ public:
 //------------------------------------------------- Surcharge d'opérateurs
 
 //-------------------------------------------- Constructeurs - destructeur
-    TrajetCompose ( const TrajetCompose & unTrajetCompose );
+    //TrajetCompose ( const TrajetCompose & unTrajetCompose );
 
-    TrajetCompose ( );
+    TrajetCompose ( TrajetList *trajets );
 
     virtual ~TrajetCompose ( );
 
@@ -46,7 +47,7 @@ protected:
 //----------------------------------------------------- Méthodes protégées
 
 //----------------------------------------------------- Attributs protégés
-    Trajet ** trajets;
+    TrajetList *trajets;
 
 };
 
