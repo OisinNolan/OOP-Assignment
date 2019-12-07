@@ -9,39 +9,53 @@ using namespace std;
 
 int main (  )
 {
-    /*Trajet * t0 = new Trajet( "A", "B" );
-    TrajetSimple * t1 = new TrajetSimple( "C", "D", "MT1" );
-    Trajet * t2 = new Trajet( "E", "F" );
-    Trajet * t3 = new Trajet( "G", "H" );
+    Catalogue * catalogue = new Catalogue();
+    TrajetList* tl = new TrajetList();
 
-    TrajetList *trajets = new TrajetList();
-    trajets->ajouterQueue(t0);
-    trajets->ajouterQueue(t1);
-    trajets->ajouterQueue(t2);
-    trajets->ajouterQueue(t3);
-    trajets->afficher();
-    cout << "#####\n";
-    trajets->dernier()->getVilleArrivee();
-
-    TrajetCompose * t4 = new TrajetCompose( trajets );
-    t4->afficher();*/
-
-    Catalogue *catalogue = new Catalogue();
-
-    for(int i=0;i<5;i++ )
+    while(1)
     {
-        cout << "AJOUT TRAJET SIMPLE\n";
-        catalogue->ajouterTrajetSimple();
+        cout << "menu" << endl;
+        cout << "\t1: afficher les trajets" << endl;
+        cout << "\t2: ajouter trajet simple" << endl;
+        cout << "\t3: ajouter trajet compose" << endl;
+        cout << "\t4: trouver chemin simple" << endl;
+        cout << "\t5: trouver chemin complex" << endl;
+        cout << "\t0: quitter " << endl;
+        int choix;
+        scanf("%d", &choix);
+        switch(choix)
+        {
+        case 0:
+            goto fin;
+        case 1:
+            catalogue->listerTrajets();
+            break;
+        case 2:
+            catalogue->ajouterTrajetSimple();
+            break;
+        case 3:
+            catalogue->ajouterTrajetCompose();
+            break;
+        case 4:
+            char villeDepart[100];
+            char villeArrivee[100];
+            cout << "Ville de départ : ";
+            cin >> villeDepart;
+            cout << "Ville d'arrivée : ";
+            cin >> villeArrivee;
+            cout << "Mode de transport : ";
+            tl = catalogue->findRoute( (const char *) villeDepart, (const char *) villeArrivee);
+            tl->afficher();
+            cout<<endl;
+            break;
+        case 5:
+            //catalogue->findRouteComp();
+            break;
+        default:
+            cout << "choix incorrect" << endl;
+            continue ;
+        }
     }
-
-
-
-    catalogue->listerTrajets();
-    // cout << "AJOUT TRAJET COMPOSÉ\n";
-    // catalogue->ajouterTrajetCompose();
-    //catalogue->listerTrajets();
-    TrajetList* tl = catalogue->findRouteComp("A","D");
-
-
+    fin:
     return 0;
 }
