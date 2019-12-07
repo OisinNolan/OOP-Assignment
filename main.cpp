@@ -13,7 +13,7 @@ int main (  )
     TrajetSimple * t1 = new TrajetSimple( "C", "D", "MT1" );
     Trajet * t2 = new Trajet( "E", "F" );
     Trajet * t3 = new Trajet( "G", "H" );
-    
+
     TrajetList *trajets = new TrajetList();
     trajets->ajouterQueue(t0);
     trajets->ajouterQueue(t1);
@@ -27,12 +27,21 @@ int main (  )
     t4->afficher();*/
 
     Catalogue *catalogue = new Catalogue();
-    cout << "AJOUT TRAJET SIMPLE\n";
-    catalogue->ajouterTrajetSimple();
+
+    for(int i=0;i<5;i++ )
+    {
+        cout << "AJOUT TRAJET SIMPLE\n";
+        catalogue->ajouterTrajetSimple();
+    }
+
+
+
     catalogue->listerTrajets();
-    cout << "AJOUT TRAJET COMPOSÉ\n";
-    catalogue->ajouterTrajetCompose();
-    catalogue->listerTrajets();
+    // cout << "AJOUT TRAJET COMPOSÉ\n";
+    // catalogue->ajouterTrajetCompose();
+    //catalogue->listerTrajets();
+    TrajetList* tl = catalogue->findRouteComp("A","D");
+
 
     return 0;
 }

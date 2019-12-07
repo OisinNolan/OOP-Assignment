@@ -7,6 +7,8 @@ using namespace std;
 #include "TrajetCompose.h"
 //#include "Trajet.h"
 
+
+
 void Catalogue::ajouterTrajetSimple (  )
 {
     char villeDepart[100];
@@ -59,13 +61,54 @@ void Catalogue::afficher (  )
         current = current->next;
     }
 }
-/*Trajet * Catalogue::findRoute(char * depart, char * arrive) {
-    Node * current = this->head;
-    while(current != 0) {
-        if(strcmp(current->trajet->depart, depart) == 0
-            &&  strcmp(current->trajet->arrive, arrcatalogue->ajouterTrajetSimple();ive) == 0) {
-                return current->trajet;
+
+TrajetList * Catalogue::findRoute(const char * depart,const char * arrive)
+{
+    TrajetList * results = new TrajetList();
+
+    Node *current = this->head;
+    while (current != nullptr) {
+
+        if( strcmp(current->trajet->getVilleDepart(),depart) == 0
+        && strcmp(current->trajet->getVilleArrivee(),arrive) == 0 )
+        {
+            results->ajouterQueue( current->trajet );
         }
+        current = current->next;
     }
-    return 0;
-}*/
+    return results;
+}
+
+TrajetList * Catalogue::findRouteComp(const char * depart,const char * arrive)
+{
+    TrajetList * results = new TrajetList();
+    StringList * visited = new StringList();
+    visited->index = 0;
+    const char * l[100];
+    visited->list = l;
+
+    dfs( depart, visited );
+    return results;
+}
+
+void Catalogue::dfs( const char * current, StringList* visited)
+{
+    cout << current << endl;
+    visited->list[visited->index] = current;
+    visited->index++;
+    Node *temp = this->head;
+    while (temp != nullptr)
+    {
+        if( strcmp(temp->trajet->getVilleDepart(),current) == 0)
+        {
+            bool hasBeenVisited = false;
+            for(int i=0; i<visited->index+1;i++ )
+            {
+                if( strcmp(visited->list[i],current) == 0) hasBeenVisited = true;
+            }
+
+            if(!hasBeenVisited )dfs( temp->trajet->getVilleArrivee(),visited);
+        }
+        temp = temp->next;
+    }
+}
