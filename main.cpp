@@ -3,9 +3,9 @@
 //#include "TrajetCompose.h"
 #include "Catalogue.h"
 // juste pour les tests
-using namespace std;
 #include <iostream>
 
+using namespace std;
 
 int main (  )
 {

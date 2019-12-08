@@ -14,6 +14,7 @@ class TrajetList {
         Trajet * premier();
         Trajet * dernier();
         void afficher();
+        void deleteFrom(const char * depart);
 };
 
 #endif // TrajetList_H

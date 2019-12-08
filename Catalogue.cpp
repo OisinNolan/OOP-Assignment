@@ -1,13 +1,12 @@
 #include <iostream>
-using namespace std;
 #include <cstring>
 
 #include "Catalogue.h"
 #include "TrajetSimple.h"
 #include "TrajetCompose.h"
-//#include "Trajet.h"
+#include "StringList.h"
 
-
+using namespace std;
 
 void Catalogue::ajouterTrajetSimple (  )
 {
@@ -81,33 +80,32 @@ TrajetList * Catalogue::findRoute(const char * depart,const char * arrive)
 
 TrajetList * Catalogue::findRouteComp(const char * depart,const char * arrive)
 {
-    TrajetList * results = new TrajetList();
+    TrajetList * results =  new TrajetList();
     StringList * visited = new StringList();
-    visited->index = 0;
-    const char * l[100];
-    visited->list = l;
+    TrajetList * path = new TrajetList();
 
-    dfs( depart, visited );
+    dfs( depart, arrive, visited, results, path);
     return results;
 }
 
-void Catalogue::dfs( const char * current, StringList* visited)
+void Catalogue::dfs( const char * current, const char * search, StringList* visited, TrajetList * results, TrajetList * path)
 {
-    cout << current << endl;
-    visited->list[visited->index] = current;
-    visited->index++;
+    if(strcmp(current,search) == 0) {
+        TrajetCompose * result = new TrajetCompose(path);
+        result->afficher();
+        cout << endl;
+    } else {
+        visited->add(current);
+    }
     Node *temp = this->head;
     while (temp != nullptr)
     {
-        if( strcmp(temp->trajet->getVilleDepart(),current) == 0)
+        if( strcmp(temp->trajet->getVilleDepart(),current) == 0
+            && !visited->contains(temp->trajet->getVilleArrivee()))
         {
-            bool hasBeenVisited = false;
-            for(int i=0; i<visited->index+1;i++ )
-            {
-                if( strcmp(visited->list[i],current) == 0) hasBeenVisited = true;
-            }
-
-            if(!hasBeenVisited )dfs( temp->trajet->getVilleArrivee(),visited);
+            path->ajouterQueue(new Trajet(current, temp->trajet->getVilleArrivee()));
+            dfs(temp->trajet->getVilleArrivee(), search, visited, results, path);
+            path->deleteFrom(current);
         }
         temp = temp->next;
     }

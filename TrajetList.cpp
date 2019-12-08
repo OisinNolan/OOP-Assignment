@@ -1,7 +1,7 @@
 #include <iostream>
-using namespace std;
-
 #include "TrajetList.h"
+
+using namespace std;
 
 TrajetList::TrajetList() {
     Node *node = nullptr;
@@ -50,5 +50,24 @@ void TrajetList::afficher() {
             cout << " - ";
         }
         current = current->next;
+    }
+}
+
+void TrajetList::deleteFrom(const char * depart) {
+    Node *current = this->head;
+    Node *prev = nullptr;
+    bool found = false;
+    while (current != nullptr && !found) {
+        if(strcmp(current->trajet->getVilleDepart(), depart) == 0) {
+            found = true;
+            if(prev != nullptr) {
+                prev->next = nullptr;   
+            } else {
+                this->head = nullptr;
+            }
+        } else {
+            prev = current;
+            current = current->next;
+        }
     }
 }
