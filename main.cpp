@@ -49,7 +49,13 @@ int main (  )
             cout<<endl;
             break;
         case 5:
-            //catalogue->findRouteComp();
+            char villeDepartC[100];
+            char villeArriveeC[100];
+            cout << "Ville de départ : ";
+            cin >> villeDepartC;
+            cout << "Ville d'arrivée : ";
+            cin >> villeArriveeC;
+            catalogue->findRouteComp(villeDepartC, villeArriveeC);
             break;
         default:
             cout << "choix incorrect" << endl;

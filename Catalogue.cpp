@@ -83,7 +83,7 @@ TrajetList * Catalogue::findRouteComp(const char * depart,const char * arrive)
     TrajetList * results =  new TrajetList();
     StringList * visited = new StringList();
     TrajetList * path = new TrajetList();
-
+    cout << "All (complex) routes from " << depart << " to " << arrive << ":" << endl;
     dfs( depart, arrive, visited, results, path);
     return results;
 }
