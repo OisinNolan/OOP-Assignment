@@ -2,7 +2,12 @@
 #define TRAJETLIST_H
 
 #include "Trajet.h"
-#include "Node.h"
+
+class Node {
+    public:
+        Trajet *trajet;
+        Node *next;
+};
 
 class TrajetList {
     protected:

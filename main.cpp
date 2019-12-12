@@ -7,10 +7,9 @@
 
 using namespace std;
 
-int main (  )
+int main()
 {
     Catalogue * catalogue = new Catalogue();
-    TrajetList* tl = new TrajetList();
 
     while(1)
     {
@@ -44,9 +43,9 @@ int main (  )
             cout << "Ville d'arrivée : ";
             cin >> villeArrivee;
             cout << "Mode de transport : ";
-            tl = catalogue->findRoute( (const char *) villeDepart, (const char *) villeArrivee);
-            tl->afficher();
-            cout<<endl;
+            cout << "All (simple) routes from " << villeDepart << " to " << villeArrivee << ":" << endl;
+            catalogue->findRoute( (const char *) villeDepart, (const char *) villeArrivee);
+            cout << endl;
             break;
         case 5:
             char villeDepartC[100];
@@ -55,7 +54,9 @@ int main (  )
             cin >> villeDepartC;
             cout << "Ville d'arrivée : ";
             cin >> villeArriveeC;
+            cout << "All (complex) routes from " << villeDepartC << " to " << villeArriveeC << ":" << endl;
             catalogue->findRouteComp(villeDepartC, villeArriveeC);
+            cout << endl;
             break;
         default:
             cout << "choix incorrect" << endl;
@@ -64,6 +65,5 @@ int main (  )
     }
     fin:
     delete(catalogue);
-    delete(tl);
     return 0;
 }

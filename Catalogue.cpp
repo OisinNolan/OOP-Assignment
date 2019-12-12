@@ -61,9 +61,8 @@ void Catalogue::afficher (  )
     }
 }
 
-TrajetList * Catalogue::findRoute(const char * depart,const char * arrive)
+void Catalogue::findRoute(const char * depart,const char * arrive)
 {
-    TrajetList * results = new TrajetList();
 
     Node *current = this->head;
     while (current != nullptr) {
@@ -71,18 +70,16 @@ TrajetList * Catalogue::findRoute(const char * depart,const char * arrive)
         if( strcmp(current->trajet->getVilleDepart(),depart) == 0
         && strcmp(current->trajet->getVilleArrivee(),arrive) == 0 )
         {
-            results->ajouterQueue( current->trajet );
+            current->trajet->afficher();
         }
         current = current->next;
     }
-    return results;
 }
 
 void Catalogue::findRouteComp(const char * depart,const char * arrive)
 {
     StringList * visited = new StringList();
     TrajetList * path = new TrajetList();
-    cout << "All (complex) routes from " << depart << " to " << arrive << ":" << endl;
     dfs( depart, arrive, visited, path);
     delete(visited);
     delete(path);
@@ -92,7 +89,6 @@ void Catalogue::dfs( const char * current, const char * search, StringList* visi
 {
     if(strcmp(current,search) == 0) {
         path->afficher();
-        cout << endl;
     } else {
         visited->add(current);
     }

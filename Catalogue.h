@@ -11,7 +11,7 @@ class Catalogue : public TrajetList {
         void ajouterTrajetCompose (  );
         void listerTrajets (  );
         void afficher (  );
-        TrajetList * findRoute (const char * depart,const char * arrive );
+        void findRoute (const char * depart,const char * arrive );
         void findRouteComp (const char * depart,const char * arrive );
         void dfs( const char * current, const char * search, StringList * visited, TrajetList * path);
 };
