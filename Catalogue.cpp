@@ -84,14 +84,14 @@ void Catalogue::findRouteComp(const char * depart,const char * arrive)
     TrajetList * path = new TrajetList();
     cout << "All (complex) routes from " << depart << " to " << arrive << ":" << endl;
     dfs( depart, arrive, visited, path);
-    
+    delete(visited);
+    delete(path);
 }
 
 void Catalogue::dfs( const char * current, const char * search, StringList* visited, TrajetList * path)
 {
     if(strcmp(current,search) == 0) {
-        TrajetCompose * result = new TrajetCompose(path);
-        result->afficher();
+        path->afficher();
         cout << endl;
     } else {
         visited->add(current);

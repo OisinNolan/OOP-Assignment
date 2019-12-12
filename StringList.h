@@ -12,6 +12,7 @@ class StringList {
         StringNode * head;
     public:
         StringList();
+        ~StringList();
         void add(const char * s);
         bool contains(const char * s);
 };

@@ -68,6 +68,7 @@ void TrajetList::deleteFrom(const char * depart) {
                 destroy(current);
                 prev->next = nullptr;   
             } else {
+                destroy(head);
                 this->head = nullptr;
             }
         } else {

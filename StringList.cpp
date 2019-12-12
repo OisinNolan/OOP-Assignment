@@ -24,3 +24,12 @@ bool StringList::contains(const char * s) {
     }
     return false;
 }
+
+StringList::~StringList() {
+    while (head) {
+        StringNode* old = head;
+        head = head->next;
+        //delete(old->str);
+        delete old;
+    }
+}
