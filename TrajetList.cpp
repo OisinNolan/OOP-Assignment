@@ -8,6 +8,10 @@ TrajetList::TrajetList() {
     this->head = node;
 }
 
+TrajetList::~TrajetList() {
+    destroy(head);
+}
+
 void TrajetList::ajouterTete(Trajet *trajet) {
     Node *node = new Node();
     node->trajet = trajet;
@@ -61,6 +65,7 @@ void TrajetList::deleteFrom(const char * depart) {
         if(strcmp(current->trajet->getVilleDepart(), depart) == 0) {
             found = true;
             if(prev != nullptr) {
+                destroy(current);
                 prev->next = nullptr;   
             } else {
                 this->head = nullptr;
@@ -69,5 +74,14 @@ void TrajetList::deleteFrom(const char * depart) {
             prev = current;
             current = current->next;
         }
+    }
+}
+
+void TrajetList::destroy(Node *node) {
+    while (node) {
+        Node* old = node;
+        node = node->next;
+        delete(old->trajet);
+        delete old;
     }
 }

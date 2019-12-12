@@ -63,5 +63,7 @@ int main (  )
         }
     }
     fin:
+    delete(catalogue);
+    delete(tl);
     return 0;
 }

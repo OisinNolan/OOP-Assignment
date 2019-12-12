@@ -55,6 +55,7 @@ TrajetSimple::~TrajetSimple ( )
     #ifdef MAP
         cout << "Appel au destructeur de <TrajetSimple>" << endl;
     #endif
+    delete(modeTransport);
 }
 
 //------------------------------------------------------------------ PRIVE

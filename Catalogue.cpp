@@ -78,17 +78,16 @@ TrajetList * Catalogue::findRoute(const char * depart,const char * arrive)
     return results;
 }
 
-TrajetList * Catalogue::findRouteComp(const char * depart,const char * arrive)
+void Catalogue::findRouteComp(const char * depart,const char * arrive)
 {
-    TrajetList * results =  new TrajetList();
     StringList * visited = new StringList();
     TrajetList * path = new TrajetList();
     cout << "All (complex) routes from " << depart << " to " << arrive << ":" << endl;
-    dfs( depart, arrive, visited, results, path);
-    return results;
+    dfs( depart, arrive, visited, path);
+    
 }
 
-void Catalogue::dfs( const char * current, const char * search, StringList* visited, TrajetList * results, TrajetList * path)
+void Catalogue::dfs( const char * current, const char * search, StringList* visited, TrajetList * path)
 {
     if(strcmp(current,search) == 0) {
         TrajetCompose * result = new TrajetCompose(path);
@@ -104,7 +103,7 @@ void Catalogue::dfs( const char * current, const char * search, StringList* visi
             && !visited->contains(temp->trajet->getVilleArrivee()))
         {
             path->ajouterQueue(new Trajet(current, temp->trajet->getVilleArrivee()));
-            dfs(temp->trajet->getVilleArrivee(), search, visited, results, path);
+            dfs(temp->trajet->getVilleArrivee(), search, visited, path);
             path->deleteFrom(current);
         }
         temp = temp->next;
