@@ -3,14 +3,12 @@
 
 #include "Trajet.h"
 
-class Node {
-    public:
-        Trajet *trajet;
-        Node *next;
-};
-
 class TrajetList {
     protected:
+        struct Node {
+            Trajet *trajet;
+            Node *next;
+        };
         Node *head;
     public:
         TrajetList();
