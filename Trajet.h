@@ -1,5 +1,5 @@
 /*************************************************************************
-                           Trajet  -  commune pour les trajets simples et les trajets composés
+                           Trajet  -  commune pour les trajets simples et les trajets composés, représente un trajet générique
                              -------------------
     début                : $DATE$
     copyright            : (C) $YEAR$ par $AUTHOR$
@@ -18,8 +18,11 @@
 
 //------------------------------------------------------------------------
 // Rôle de la classe <Trajet>
-//
-//
+/* Implémentation générale d’un trajet.
+   L’instance de cette classe dispose de 2 pointeurs vers 2 attributs de type const char (villeDepart et villeArrivee).
+   On dispose également des “getteurs” pour ces 2 attributs et une méthode afficher() - uniquement pour les tests.
+*/
+
 //------------------------------------------------------------------------
 
 class Trajet
@@ -37,9 +40,7 @@ public:
 
 //-------------------------------------------- Constructeurs - destructeur
     Trajet ( const Trajet & unTrajet );
-
     Trajet ( const char *villeDepart, const char *villeArrivee );
-
     virtual ~Trajet ( );
 
 //------------------------------------------------------------------ PRIVE

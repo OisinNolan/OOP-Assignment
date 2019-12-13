@@ -1,5 +1,5 @@
 /*************************************************************************
-                           Trajet  -  commune pour les trajets simples et les trajets composés
+                           Trajet  -  commune pour les trajets simples et les trajets composés, représente un trajet générique
                              -------------------
     début                : $DATE$
     copyright            : (C) $YEAR$ par $AUTHOR$
@@ -23,16 +23,17 @@ using namespace std;
 //----------------------------------------------------------------- PUBLIC
 
 //----------------------------------------------------- Méthodes publiques
+/* Une méthode permettant d'afficher l'objet dans le terminal */
 void Trajet::afficher (  )
 {
     cout << "de " << villeDepart << " à " << villeArrivee;
 }
-
+/* Un getteur permettant d'obtenir la valeur de l'attribut protégé villeDepart */
 const char * Trajet::getVilleDepart (  )
 {
     return this->villeDepart;
 }
-
+/* Un getteur permettant d'obtenir la valeur de l'attribut protégé villeArrivee */
 const char * Trajet::getVilleArrivee (  )
 {
     return this->villeArrivee;
@@ -40,37 +41,37 @@ const char * Trajet::getVilleArrivee (  )
 
 //------------------------------------------------- Surcharge d'opérateurs
 
-
 //-------------------------------------------- Constructeurs - destructeur
+/* Un constructeur par recopie de la classe Trajet */
 Trajet::Trajet ( const Trajet & unTrajet )
 {
-    this->villeDepart = unTrajet.villeDepart;
-    this->villeArrivee = unTrajet.villeArrivee;
     #ifdef MAP
         cout << "Appel au constructeur de copie de <Trajet>" << endl;
     #endif
+    this->villeDepart = unTrajet.villeDepart;
+    this->villeArrivee = unTrajet.villeArrivee;
 }
-
+/* Un constructeur de la classe Trajet */
 Trajet::Trajet ( const char *villeDepart, const char *villeArrivee )
 {
-    char *tempVilleDepart = new char[strlen(villeDepart)];
-    strcpy(tempVilleDepart, villeDepart);
-    this->villeDepart = tempVilleDepart;
-    char *tempVilleArrivee = new char[strlen(villeArrivee)];
-    strcpy(tempVilleArrivee, villeArrivee);
-    this->villeArrivee = tempVilleArrivee;
     #ifdef MAP
         cout << "Appel au constructeur de <Trajet>" << endl;
     #endif
+    char *tempVilleDepart = new char[ strlen ( villeDepart ) ];
+    strcpy ( tempVilleDepart, villeDepart );
+    this->villeDepart = tempVilleDepart;
+    char *tempVilleArrivee = new char[ strlen ( villeArrivee ) ];
+    strcpy ( tempVilleArrivee, villeArrivee );
+    this->villeArrivee = tempVilleArrivee;
 }
-
+/* Destructeur de la classe Trajet */
 Trajet::~Trajet ( )
 {
     #ifdef MAP
         cout << "Appel au destructeur de <Trajet>" << endl;
     #endif
-    delete(villeDepart);
-    delete(villeArrivee);
+    delete ( villeDepart );
+    delete ( villeArrivee );
 }
 
 //------------------------------------------------------------------ PRIVE
