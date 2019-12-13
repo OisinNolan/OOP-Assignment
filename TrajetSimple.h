@@ -35,14 +35,14 @@ class TrajetSimple : public Trajet
 
 public:
 //----------------------------------------------------- Méthodes publiques
-    virtual void afficher();
-    const char * getModeTransport();
+    virtual void afficher (  );
+    const char * getModeTransport (  );
 
 //------------------------------------------------- Surcharge d'opérateurs
 
 //-------------------------------------------- Constructeurs - destructeur
     TrajetSimple ( const char *villeDepart, const char *villeArrivee, const char *modeTransport );
-    TrajetSimple(TrajetSimple * original);
+    TrajetSimple ( TrajetSimple * original );
     virtual ~TrajetSimple ( );
 
 //------------------------------------------------------------------ PRIVE

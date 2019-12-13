@@ -1,5 +1,5 @@
 /*************************************************************************
-                           TrajetCompose  -  description
+                           TrajetCompose  -  une classe représentant un trajet composé
                              -------------------
     début                : $DATE$
     copyright            : (C) $YEAR$ par $AUTHOR$
@@ -22,6 +22,7 @@ using namespace std;
 //----------------------------------------------------------------- PUBLIC
 
 //----------------------------------------------------- Méthodes publiques
+/* Une méthode permettant d'afficher l'objet dans le terminal */
 void TrajetCompose::afficher (  )
 {
     trajets->afficher();
@@ -30,28 +31,20 @@ void TrajetCompose::afficher (  )
 //------------------------------------------------- Surcharge d'opérateurs
 
 //-------------------------------------------- Constructeurs - destructeur
-/*TrajetCompose::TrajetCompose ( const TrajetCompose & unTrajetCompose )
-{
-    villeDepart = unTrajetCompose.villeDepart;
-    villeArrivee = unTrajetCompose.villeArrivee;
-    #ifdef MAP
-        cout << "Appel au constructeur de copie de <TrajetCompose>" << endl;
-    #endif
-}*/
-
+/* Un constructeur de la classe TrajetCompose */
 TrajetCompose::TrajetCompose ( TrajetList *trajets ) : Trajet ( trajets->premier()->getVilleDepart(), trajets->dernier()->getVilleArrivee() ), trajets ( trajets )
 {
     #ifdef MAP
         cout << "Appel au constructeur de <TrajetCompose>" << endl;
     #endif
 }
-
+/* Destructeur de la classe TrajetCompose */
 TrajetCompose::~TrajetCompose ( )
 {
     #ifdef MAP
         cout << "Appel au destructeur de <TrajetCompose>" << endl;
     #endif
-    delete(trajets);
+    delete ( trajets );
 }
 
 //------------------------------------------------------------------ PRIVE
