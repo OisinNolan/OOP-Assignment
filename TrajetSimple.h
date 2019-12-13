@@ -1,5 +1,5 @@
 /*************************************************************************
-                           TrajetSimple  -  description
+                           TrajetSimple  -  une classe représentant un trajet simple qui comporte 3 attributs : villeDepart, villeArrivee et modeTransport
                              -------------------
     début                : $DATE$
     copyright            : (C) $YEAR$ par $AUTHOR$
@@ -19,8 +19,14 @@
 
 //------------------------------------------------------------------------
 // Rôle de la classe <TrajetSimple>
-//
-//
+/* Spécialisation de la classe Trajet.
+   Elle comporte toutes les méthodes et attributs du parent en spécifiant en plus des attributs et méthodes spécifiques à elle-même.
+   Ainsi TrajetSimple comprend un attribut en plus par rapport à son parent (un pointeur vers une chaîne de caractères - modeTransport).
+   Une méthode d’affichage afficher() a aussi été redéfinie pour cette classe fille.
+   Cette redéfinition est une représentation de la notion nommé “surcharge”.
+   Dans la classe parente la déclaration de la méthode afficher() a été précédé par le mot-clé virtual ce qui signifie qu’elle sera accessible aussi pour les classe dérivant de celle-ci.
+*/
+
 //------------------------------------------------------------------------
 
 class TrajetSimple : public Trajet
@@ -35,8 +41,6 @@ public:
 //------------------------------------------------- Surcharge d'opérateurs
 
 //-------------------------------------------- Constructeurs - destructeur
-    //TrajetSimple ( const TrajetSimple & unTrajetSimple );
-
     TrajetSimple ( const char *villeDepart, const char *villeArrivee, const char *modeTransport );
     TrajetSimple(TrajetSimple * original);
     virtual ~TrajetSimple ( );
