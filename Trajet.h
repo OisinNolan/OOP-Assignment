@@ -41,7 +41,7 @@ public:
 //-------------------------------------------- Constructeurs - destructeur
     Trajet ( const Trajet & unTrajet );
     Trajet ( const char *villeDepart, const char *villeArrivee );
-    virtual ~Trajet ( );
+    virtual ~Trajet (  );
 
 //------------------------------------------------------------------ PRIVE
 

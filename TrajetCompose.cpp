@@ -39,7 +39,7 @@ TrajetCompose::TrajetCompose ( TrajetList *trajets ) : Trajet ( trajets->premier
     #endif
 }
 /* Destructeur de la classe TrajetCompose */
-TrajetCompose::~TrajetCompose ( )
+TrajetCompose::~TrajetCompose (  )
 {
     #ifdef MAP
         cout << "Appel au destructeur de <TrajetCompose>" << endl;

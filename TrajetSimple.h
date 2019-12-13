@@ -43,7 +43,7 @@ public:
 //-------------------------------------------- Constructeurs - destructeur
     TrajetSimple ( const char *villeDepart, const char *villeArrivee, const char *modeTransport );
     TrajetSimple ( TrajetSimple * original );
-    virtual ~TrajetSimple ( );
+    virtual ~TrajetSimple (  );
 
 //------------------------------------------------------------------ PRIVE
 

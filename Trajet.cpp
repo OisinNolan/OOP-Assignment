@@ -65,7 +65,7 @@ Trajet::Trajet ( const char *villeDepart, const char *villeArrivee )
     this->villeArrivee = tempVilleArrivee;
 }
 /* Destructeur de la classe Trajet */
-Trajet::~Trajet ( )
+Trajet::~Trajet (  )
 {
     #ifdef MAP
         cout << "Appel au destructeur de <Trajet>" << endl;

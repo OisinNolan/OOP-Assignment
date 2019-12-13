@@ -38,7 +38,7 @@ public:
 
 //-------------------------------------------- Constructeurs - destructeur
     TrajetCompose ( TrajetList *trajets );
-    virtual ~TrajetCompose ( );
+    virtual ~TrajetCompose (  );
 
 //------------------------------------------------------------------ PRIVE
 

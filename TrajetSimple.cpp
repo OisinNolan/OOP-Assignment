@@ -55,12 +55,12 @@ TrajetSimple::TrajetSimple ( const char *villeDepart, const char *villeArrivee, 
     this->modeTransport = tempModeTransport;
 }
 /* Destructeur de la classe TrajetSimple */
-TrajetSimple::~TrajetSimple ( )
+TrajetSimple::~TrajetSimple (  )
 {
     #ifdef MAP
         cout << "Appel au destructeur de <TrajetSimple>" << endl;
     #endif
-    delete(modeTransport);
+    delete ( modeTransport );
 }
 
 //------------------------------------------------------------------ PRIVE
