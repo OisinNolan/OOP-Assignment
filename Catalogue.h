@@ -55,6 +55,6 @@ protected:
 
 };
 
-//-------------------------------- Autres définitions dépendantes de <TrajetSimple>
+//-------------------------------- Autres définitions dépendantes de <Catalogue>
 
 #endif // Catalogue_H
