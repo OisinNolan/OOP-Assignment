@@ -33,6 +33,7 @@ const char * TrajetSimple::getModeTransport (  )
 {
     return modeTransport;
 }
+
 //------------------------------------------------- Surcharge d'opérateurs
 
 //-------------------------------------------- Constructeurs - destructeur
