@@ -55,7 +55,7 @@ int main()
                 cout << endl;
                 break;
             case 6:
-                //catalogue->saveType("TS");
+                catalogue->saveInterval(2, 4);
                 break;
             default:
                 cout << "choix incorrect" << endl;
