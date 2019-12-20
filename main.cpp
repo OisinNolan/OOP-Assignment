@@ -14,7 +14,8 @@ int main()
         cout << "\t3: ajouter trajet composé" << endl;
         cout << "\t4: trouver chemin simple" << endl;
         cout << "\t5: trouver chemin complexe" << endl;
-        cout << "\t6: Save" << endl;
+        cout << "\t6: sauvegarder les trajets" << endl;
+        cout << "\t7: restituer les trajets" << endl;
         cout << "\t0: quitter" << endl;
         int choix;
         scanf("%d", &choix);
@@ -56,6 +57,12 @@ int main()
                 break;
             case 6:
                 catalogue->OutputFile();
+                break;
+            case 7:
+                char nomFichier[100];
+                cout << "Donner le nom du fichier à lire : ";
+                cin >> nomFichier;
+                catalogue->restituerTrajets(nomFichier);
                 break;
             default:
                 cout << "choix incorrect" << endl;

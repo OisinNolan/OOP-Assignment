@@ -126,16 +126,11 @@ void Catalogue::dfs ( const char *current, const char *search, StringList *visit
         temp = temp->next;
     }
 }
-
-<<<<<<< HEAD
-/* Méthode restituant les trajets à partir d'un fichier dont le nom est passé en paramètre */
-=======
 void Catalogue::saveAll () {
     // OutputFile(this);
 }
-
 void Catalogue::saveType(const string t) {
-    TrajetList * tl = new TrajetList();
+    /*TrajetList * tl = new TrajetList();
     Node *current = this->head;
     while ( current != nullptr )
     {
@@ -145,36 +140,34 @@ void Catalogue::saveType(const string t) {
         current = current->next;
     }
     // tl->output();
-    delete(tl);
+    delete(tl);*/
 }
-
 void Catalogue::saveSpecific(const string depart, const string arrive) {
-    TrajetList * tl = new TrajetList();
+    /*TrajetList * tl = new TrajetList();
     Node *current = this->head;
     while ( current != nullptr )
     {
         if(depart != "" && arrive == "") {
-            if(current->trajet->getVilleDepart == depart) {
+            if(current->trajet->getVilleDepart() == depart) {
                 tl->ajouterQueue(current->trajet);
             }
         } else if(depart == "" && arrive != "") {
-            if(current->trajet->getVilleArrivee == arrive) {
+            if(current->trajet->getVilleArrivee() == arrive) {
                 tl->ajouterQueue(current->trajet);
             }
         } else if(depart != "" && arrive != "") {
-            if((current->trajet->getVilleDepart == depart)
-            && (current->trajet->getVilleArrivee == arrive)) {
+            if((current->trajet->getVilleDepart() == depart)
+            && (current->trajet->getVilleArrivee() == arrive)) {
                 tl->ajouterQueue(current->trajet);
             }
         }
         current = current->next;
     }
     // tl->output();
-    delete(tl);
+    delete(tl);*/
 }
-
->>>>>>> a61fd21689e2f53879ba9284cdca4dce52a193f2
-void Catalogue::restituerTrajets ( const char *nomfichier )
+/* Méthode restituant les trajets à partir d'un fichier dont le nom est passé en paramètre */
+void Catalogue::restituerTrajets ( const char *nomFichier )
 {
     ifstream fluxlecture;
     fluxlecture.open("fichier.trajets");
@@ -187,15 +180,27 @@ void Catalogue::restituerTrajets ( const char *nomfichier )
             start = typeTrajet.length() + 1;
             cout << typeTrajet << endl;
             if (typeTrajet == "TS") {
+                string attributs[3];
+                int i = 0;
+                while (end != ligne.length() - 1) {
+                    end = ligne.find(":", start);
+                    attributs[i] = ligne.substr(start, end - start);;
+                    start += attributs[i].length() + 1;
+                    i++;
+                }
+                this->ajouterQueue(new TrajetSimple(attributs[0].c_str(), attributs[1].c_str(), attributs[2].c_str()));
+            } else {
                 string attribut;
                 while (end != ligne.length() - 1) {
                     end = ligne.find(":", start);
                     string attribut = ligne.substr(start, end - start);
                     start += attribut.length() + 1;
                     cout << attribut << endl;
+                    if (end + 1 == ligne.find("&", start)) {
+                        start++;
+                        cout << "---" << endl;
+                    }
                 }
-            } else {
-
             }
         }
     } else {

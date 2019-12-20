@@ -12,8 +12,6 @@
 
 //--------------------------------------------------- Interfaces utilisées
 
-#include "string"
-
 //------------------------------------------------------------- Constantes
 
 //------------------------------------------------------------------ Types
@@ -36,7 +34,7 @@ public:
     virtual void afficher (  );
     virtual const char * getVilleDepart (  );
     virtual const char * getVilleArrivee (  );
-    virtual std::string name() const;
+    //virtual std::string name() const;
 
 //------------------------------------------------- Surcharge d'opérateurs
 
