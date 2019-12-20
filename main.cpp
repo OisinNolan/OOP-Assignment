@@ -56,7 +56,7 @@ int main()
                 cout << endl;
                 break;
             case 6:
-                catalogue->OutputFile();
+                catalogue->saveInterval(2, 4);
                 break;
             case 7:
                 char nomFichier[100];

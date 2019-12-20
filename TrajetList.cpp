@@ -126,7 +126,7 @@ void TrajetList::OutputFile()
     {
         myfile << current->trajet->getVilleDepart() << ":" ;
         myfile << current->trajet->getVilleArrivee() << ":";
-        myfile << current->trajet->getModeTransport() << ":";
+        //myfile << current->trajet->getModeTransport() << ":";
         myfile << endl;
         current = current->next;
     }*/

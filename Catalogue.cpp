@@ -166,8 +166,23 @@ void Catalogue::saveSpecific(const string depart, const string arrive) {
     // tl->output();
     delete(tl);*/
 }
+void Catalogue::saveInterval(int n, int m) {
+    TrajetList * tl = new TrajetList();
+    int counter = 0;
+    Node *current = this->head;
+    while ( current != nullptr )
+    {
+        if(counter >= n && counter <= m) {
+            tl->ajouterQueue(current->trajet);
+        }
+        counter++;
+        current = current->next;
+    }
+    // tl->output();
+    delete(tl);
+}
 /* Méthode restituant les trajets à partir d'un fichier dont le nom est passé en paramètre */
-void Catalogue::restituerTrajets ( const char *nomFichier )
+void Catalogue::restituerTrajets ( const char *nomfichier )
 {
     ifstream fluxlecture;
     fluxlecture.open("fichier.trajets");
