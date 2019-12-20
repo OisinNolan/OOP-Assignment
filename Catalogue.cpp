@@ -127,9 +127,7 @@ void Catalogue::dfs ( const char *current, const char *search, StringList *visit
     }
 }
 
-<<<<<<< HEAD
 /* Méthode restituant les trajets à partir d'un fichier dont le nom est passé en paramètre */
-=======
 void Catalogue::saveAll () {
     // OutputFile(this);
 }
@@ -174,7 +172,6 @@ void Catalogue::saveSpecific(const string depart, const string arrive) {
     delete(tl);
 }
 
->>>>>>> a61fd21689e2f53879ba9284cdca4dce52a193f2
 void Catalogue::restituerTrajets ( const char *nomfichier )
 {
     ifstream fluxlecture;
