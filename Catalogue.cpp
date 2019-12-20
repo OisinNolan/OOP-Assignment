@@ -14,6 +14,7 @@
 #include <iostream>
 using namespace std;
 #include <cstring>
+#include <fstream>
 
 //------------------------------------------------------ Include personnel
 #include "TrajetSimple.h"
@@ -167,6 +168,35 @@ void Catalogue::saveSpecific(const string depart, const string arrive) {
     }
     // tl->output();
     delete(tl);
+}
+
+void Catalogue::restituerTrajets ( const char *nomfichier )
+{
+    ifstream fluxlecture;
+    fluxlecture.open("fichier.trajets");
+        
+    if (fluxlecture) {
+        for (string ligne; getline(fluxlecture, ligne);) {
+            auto start = 0;
+            auto end = ligne.find("#", start);
+            string typeTrajet = ligne.substr(start, end);
+            start = typeTrajet.length() + 1;
+            cout << typeTrajet << endl;
+            if (typeTrajet == "TS") {
+                string attribut;
+                while (end != ligne.length() - 1) {
+                    end = ligne.find(":", start);
+                    string attribut = ligne.substr(start, end - start);
+                    start += attribut.length() + 1;
+                    cout << attribut << endl;
+                }
+            } else {
+
+            }
+        }
+    } else {
+        cout << "ERREUR: Impossible d'ouvrir le fichier en lecture !" << endl;
+    }
 }
 
 //------------------------------------------------- Surcharge d'opérateurs
