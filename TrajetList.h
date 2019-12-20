@@ -43,6 +43,7 @@ public:
     void afficher (  );
     void deleteFrom ( const char *depart );
     void destroy ( Node *node );
+    void OutputFile();
 
 //------------------------------------------------- Surcharge d'opérateurs
 

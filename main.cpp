@@ -15,6 +15,7 @@ int main()
         cout << "\t3: ajouter trajet composé" << endl;
         cout << "\t4: trouver chemin simple" << endl;
         cout << "\t5: trouver chemin complexe" << endl;
+        cout << "\t6: Save" << endl;
         cout << "\t0: quitter" << endl;
         int choix;
         scanf("%d", &choix);
@@ -53,6 +54,9 @@ int main()
                 cout << "All (complex) routes from " << villeDepartC << " to " << villeArriveeC << ":" << endl;
                 catalogue->findRouteComp(villeDepartC, villeArriveeC);
                 cout << endl;
+                break;
+            case 6:
+                catalogue->OutputFile();
                 break;
             default:
                 cout << "choix incorrect" << endl;
