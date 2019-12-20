@@ -55,7 +55,7 @@ int main()
                 cout << endl;
                 break;
             case 6:
-                catalogue->OutputFile();
+                //catalogue->saveType("TS");
                 break;
             default:
                 cout << "choix incorrect" << endl;

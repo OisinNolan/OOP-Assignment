@@ -74,6 +74,10 @@ Trajet::~Trajet (  )
     delete ( villeArrivee );
 }
 
+string Trajet::name() const {
+    return "T";
+}
+
 //------------------------------------------------------------------ PRIVE
 
 //----------------------------------------------------- Méthodes protégées

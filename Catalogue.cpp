@@ -141,6 +141,7 @@ void Catalogue::saveType(const string t) {
         }
         current = current->next;
     }
+    tl->afficher();
     // tl->output();
     delete(tl);
 }
@@ -151,16 +152,16 @@ void Catalogue::saveSpecific(const string depart, const string arrive) {
     while ( current != nullptr )
     {
         if(depart != "" && arrive == "") {
-            if(current->trajet->getVilleDepart == depart) {
+            if(current->trajet->getVilleDepart() == depart) {
                 tl->ajouterQueue(current->trajet);
             }
         } else if(depart == "" && arrive != "") {
-            if(current->trajet->getVilleArrivee == arrive) {
+            if(current->trajet->getVilleArrivee() == arrive) {
                 tl->ajouterQueue(current->trajet);
             }
         } else if(depart != "" && arrive != "") {
-            if((current->trajet->getVilleDepart == depart)
-            && (current->trajet->getVilleArrivee == arrive)) {
+            if((current->trajet->getVilleDepart() == depart)
+            && (current->trajet->getVilleArrivee() == arrive)) {
                 tl->ajouterQueue(current->trajet);
             }
         }
