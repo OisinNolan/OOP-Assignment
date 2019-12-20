@@ -47,6 +47,10 @@ TrajetCompose::~TrajetCompose (  )
     delete ( trajets );
 }
 
+string TrajetCompose::name() const {
+    return "TC";
+}
+
 //------------------------------------------------------------------ PRIVE
 
 //----------------------------------------------------- Méthodes protégées

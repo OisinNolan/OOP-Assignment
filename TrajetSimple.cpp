@@ -64,6 +64,10 @@ TrajetSimple::~TrajetSimple (  )
     delete ( modeTransport );
 }
 
+string TrajetSimple::name() const {
+    return "TS";
+}
+
 //------------------------------------------------------------------ PRIVE
 
 //----------------------------------------------------- Méthodes protégées
