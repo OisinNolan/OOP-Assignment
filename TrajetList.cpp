@@ -117,6 +117,20 @@ void TrajetList::destroy ( Node *node )
         delete old;
     }
 }
+void TrajetList::OutputFile()
+{
+    ofstream myfile;
+    myfile.open ("example.txt");
+    Node *current = this->head;
+    while ( current != nullptr )
+    {
+        myfile << current->trajet->getVilleDepart() << ":" ;
+        myfile << current->trajet->getVilleArrivee() << ":";
+        myfile << current->trajet->getModeTransport() << ":";
+        myfile << endl;
+        current = current->next;
+    }
+}
 
 //------------------------------------------------- Surcharge d'opérateurs
 
