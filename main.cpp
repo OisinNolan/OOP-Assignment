@@ -2,23 +2,9 @@
 
 #include <iostream>
 using namespace std;
-#include <fstream>
 
 int main()
 {
-    ifstream fluxlecture;
-    fluxlecture.open("fichier.trajets");
-    
-    string ligne;
-    
-    if (fluxlecture) {
-        for (string ligne; getline(fluxlecture, ligne);) {
-            cout << ligne << endl;
-        }
-    } else {
-        cout << "ERREUR: Impossible d'ouvrir le fichier en lecture !" << endl;
-    }
-
     Catalogue * catalogue = new Catalogue();
 
     while(1)
