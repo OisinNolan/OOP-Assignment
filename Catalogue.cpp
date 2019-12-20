@@ -127,6 +127,7 @@ void Catalogue::dfs ( const char *current, const char *search, StringList *visit
     }
 }
 
+/* Méthode restituant les trajets à partir d'un fichier dont le nom est passé en paramètre */
 void Catalogue::restituerTrajets ( const char *nomfichier )
 {
     ifstream fluxlecture;
