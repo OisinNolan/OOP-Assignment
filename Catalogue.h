@@ -41,6 +41,9 @@ public:
     void findRoute ( const char *depart, const char *arrive );
     void findRouteComp ( const char *depart, const char *arrive );
     void dfs ( const char *current, const char *search, StringList *visited, TrajetList *path );
+    void saveAll (  );
+    void saveType( const std::string t);
+    void saveSpecific( const std::string depart, const std::string arrive);
 
 //------------------------------------------------- Surcharge d'opérateurs
 

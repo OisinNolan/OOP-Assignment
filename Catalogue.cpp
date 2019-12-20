@@ -126,6 +126,49 @@ void Catalogue::dfs ( const char *current, const char *search, StringList *visit
     }
 }
 
+void Catalogue::saveAll () {
+    // OutputFile(this);
+}
+
+void Catalogue::saveType(const string t) {
+    TrajetList * tl = new TrajetList();
+    Node *current = this->head;
+    while ( current != nullptr )
+    {
+        if(t == current->trajet->name()) {
+            tl->ajouterQueue(current->trajet);
+        }
+        current = current->next;
+    }
+    // tl->output();
+    delete(tl);
+}
+
+void Catalogue::saveSpecific(const string depart, const string arrive) {
+    TrajetList * tl = new TrajetList();
+    Node *current = this->head;
+    while ( current != nullptr )
+    {
+        if(depart != "" && arrive == "") {
+            if(current->trajet->getVilleDepart == depart) {
+                tl->ajouterQueue(current->trajet);
+            }
+        } else if(depart == "" && arrive != "") {
+            if(current->trajet->getVilleArrivee == arrive) {
+                tl->ajouterQueue(current->trajet);
+            }
+        } else if(depart != "" && arrive != "") {
+            if((current->trajet->getVilleDepart == depart)
+            && (current->trajet->getVilleArrivee == arrive)) {
+                tl->ajouterQueue(current->trajet);
+            }
+        }
+        current = current->next;
+    }
+    // tl->output();
+    delete(tl);
+}
+
 //------------------------------------------------- Surcharge d'opérateurs
 
 //-------------------------------------------- Constructeurs - destructeur

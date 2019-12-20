@@ -13,6 +13,7 @@
 //--------------------------------------------------- Interfaces utilisées
 #include "Trajet.h"
 #include "TrajetList.h"
+#include "string"
 
 //------------------------------------------------------------- Constantes
 
@@ -39,6 +40,7 @@ public:
 //-------------------------------------------- Constructeurs - destructeur
     TrajetCompose ( TrajetList *trajets );
     virtual ~TrajetCompose (  );
+    std::string name() const;
 
 //------------------------------------------------------------------ PRIVE
 

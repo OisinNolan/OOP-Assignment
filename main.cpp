@@ -6,7 +6,6 @@ using namespace std;
 int main()
 {
     Catalogue * catalogue = new Catalogue();
-
     while(1)
     {
         cout << "menu" << endl;
