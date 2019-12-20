@@ -78,6 +78,11 @@ string Trajet::name() const {
     return "T";
 }
 
+const string Trajet::format()
+{
+    return "";
+}
+
 //------------------------------------------------------------------ PRIVE
 
 //----------------------------------------------------- Méthodes protégées

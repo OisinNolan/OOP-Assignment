@@ -51,6 +51,14 @@ string TrajetCompose::name() const {
     return "TC";
 }
 
+const string TrajetCompose::format()
+{
+    string s = "TC#";
+    s += trajets->getFormat();
+    return s;
+}
+
+
 //------------------------------------------------------------------ PRIVE
 
 //----------------------------------------------------- Méthodes protégées

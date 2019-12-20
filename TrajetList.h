@@ -13,6 +13,7 @@
 //--------------------------------------------------- Interfaces utilisées
 #include "Trajet.h"
 
+
 //------------------------------------------------------------- Constantes
 
 //------------------------------------------------------------------ Types
@@ -44,6 +45,7 @@ public:
     void deleteFrom ( const char *depart );
     void destroy ( Node *node );
     void OutputFile();
+    string getFormat();
 
 //------------------------------------------------- Surcharge d'opérateurs
 

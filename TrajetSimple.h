@@ -45,6 +45,7 @@ public:
     TrajetSimple ( TrajetSimple * original );
     virtual ~TrajetSimple (  );
     std::string name() const;
+    const string format();
 
 //------------------------------------------------------------------ PRIVE
 

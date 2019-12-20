@@ -41,6 +41,7 @@ public:
     TrajetCompose ( TrajetList *trajets );
     virtual ~TrajetCompose (  );
     std::string name() const;
+    const string format();
 
 //------------------------------------------------------------------ PRIVE
 

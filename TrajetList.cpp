@@ -14,6 +14,8 @@
 #include <iostream>
 using namespace std;
 #include <cstring>
+#include <fstream>
+#include <string>
 
 //------------------------------------------------------ Include personnel
 #include "TrajetList.h"
@@ -93,7 +95,7 @@ void TrajetList::deleteFrom ( const char * depart )
             if ( prev != nullptr )
             {
                 destroy ( current );
-                prev->next = nullptr;   
+                prev->next = nullptr;
             } else
             {
                 destroy ( head );
@@ -119,17 +121,29 @@ void TrajetList::destroy ( Node *node )
 }
 void TrajetList::OutputFile()
 {
-/*    ofstream myfile;
-    myfile.open ("example.txt");
+    ofstream myfile;
+    myfile.open("example.txt");
     Node *current = this->head;
     while ( current != nullptr )
     {
-        myfile << current->trajet->getVilleDepart() << ":" ;
-        myfile << current->trajet->getVilleArrivee() << ":";
-        //myfile << current->trajet->getModeTransport() << ":";
+        myfile << current->trajet->format();
         myfile << endl;
         current = current->next;
-    }*/
+    }
+}
+
+string TrajetList::getFormat()
+{
+    string s ="";
+    Node *current = this->head;
+    while ( current != nullptr )
+    {
+        s += current->trajet->format();
+        s += "&";
+        current = current->next;
+    }
+
+    return s;
 }
 
 //------------------------------------------------- Surcharge d'opérateurs

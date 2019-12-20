@@ -68,6 +68,19 @@ string TrajetSimple::name() const {
     return "TS";
 }
 
+const string TrajetSimple::format()
+{
+
+    string vd(villeDepart);
+    string va(villeArrivee);
+    string mt(modeTransport);
+    string s = "TS#" + vd + ":" + va +":" + mt + ":";
+    //+":"+str(villeArrivee)+":"+str(modeTransport)+":"
+
+
+    return s;
+}
+
 //------------------------------------------------------------------ PRIVE
 
 //----------------------------------------------------- Méthodes protégées
