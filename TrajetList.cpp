@@ -121,8 +121,13 @@ void TrajetList::destroy ( Node *node )
 }
 void TrajetList::OutputFile()
 {
+<<<<<<< HEAD
     ofstream myfile;
     myfile.open("example.txt");
+=======
+    /*ofstream myfile;
+    myfile.open ("example.txt");
+>>>>>>> refs/remotes/origin/master
     Node *current = this->head;
     while ( current != nullptr )
     {

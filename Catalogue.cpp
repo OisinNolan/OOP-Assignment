@@ -126,14 +126,11 @@ void Catalogue::dfs ( const char *current, const char *search, StringList *visit
         temp = temp->next;
     }
 }
-
-/* Méthode restituant les trajets à partir d'un fichier dont le nom est passé en paramètre */
 void Catalogue::saveAll () {
     // OutputFile(this);
 }
-
 void Catalogue::saveType(const string t) {
-    TrajetList * tl = new TrajetList();
+    /*TrajetList * tl = new TrajetList();
     Node *current = this->head;
     while ( current != nullptr )
     {
@@ -142,13 +139,11 @@ void Catalogue::saveType(const string t) {
         }
         current = current->next;
     }
-    tl->afficher();
     // tl->output();
-    delete(tl);
+    delete(tl);*/
 }
-
 void Catalogue::saveSpecific(const string depart, const string arrive) {
-    TrajetList * tl = new TrajetList();
+    /*TrajetList * tl = new TrajetList();
     Node *current = this->head;
     while ( current != nullptr )
     {
@@ -169,9 +164,24 @@ void Catalogue::saveSpecific(const string depart, const string arrive) {
         current = current->next;
     }
     // tl->output();
+    delete(tl);*/
+}
+void Catalogue::saveInterval(int n, int m) {
+    TrajetList * tl = new TrajetList();
+    int counter = 0;
+    Node *current = this->head;
+    while ( current != nullptr )
+    {
+        if(counter >= n && counter <= m) {
+            tl->ajouterQueue(current->trajet);
+        }
+        counter++;
+        current = current->next;
+    }
+    // tl->output();
     delete(tl);
 }
-
+/* Méthode restituant les trajets à partir d'un fichier dont le nom est passé en paramètre */
 void Catalogue::restituerTrajets ( const char *nomfichier )
 {
     ifstream fluxlecture;
@@ -185,15 +195,27 @@ void Catalogue::restituerTrajets ( const char *nomfichier )
             start = typeTrajet.length() + 1;
             cout << typeTrajet << endl;
             if (typeTrajet == "TS") {
+                string attributs[3];
+                int i = 0;
+                while (end != ligne.length() - 1) {
+                    end = ligne.find(":", start);
+                    attributs[i] = ligne.substr(start, end - start);;
+                    start += attributs[i].length() + 1;
+                    i++;
+                }
+                this->ajouterQueue(new TrajetSimple(attributs[0].c_str(), attributs[1].c_str(), attributs[2].c_str()));
+            } else {
                 string attribut;
                 while (end != ligne.length() - 1) {
                     end = ligne.find(":", start);
                     string attribut = ligne.substr(start, end - start);
                     start += attribut.length() + 1;
                     cout << attribut << endl;
+                    if (end + 1 == ligne.find("&", start)) {
+                        start++;
+                        cout << "---" << endl;
+                    }
                 }
-            } else {
-
             }
         }
     } else {
