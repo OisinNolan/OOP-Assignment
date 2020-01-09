@@ -56,8 +56,10 @@ int main()
                 cout << endl;
                 break;
             case 6:
-                //catalogue->saveType("TS");
-                catalogue->OutputFile();
+                char nomFichierW[100];
+                cout << "Donner le nom du fichier à écrire : ";
+                cin >> nomFichierW;
+                catalogue->OutputFile(nomFichierW);
                 catalogue->saveInterval(2, 4);
                 break;
             case 7:
