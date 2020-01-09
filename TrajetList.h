@@ -44,7 +44,7 @@ public:
     void afficher (  );
     void deleteFrom ( const char *depart );
     void destroy ( Node *node );
-    void OutputFile();
+    void OutputFile( const char *nomfichier  );
     string getFormat();
 
 //------------------------------------------------- Surcharge d'opérateurs

@@ -129,8 +129,8 @@ void Catalogue::dfs ( const char *current, const char *search, StringList *visit
 void Catalogue::saveAll () {
     // OutputFile(this);
 }
-void Catalogue::saveType(const string t) {
-    /*TrajetList * tl = new TrajetList();
+void Catalogue::saveType(const string t, const char *nomfichier ) {
+    TrajetList * tl = new TrajetList();
     Node *current = this->head;
     while ( current != nullptr )
     {
@@ -139,11 +139,11 @@ void Catalogue::saveType(const string t) {
         }
         current = current->next;
     }
-    // tl->output();
-    delete(tl);*/
+    tl->OutputFile( nomfichier );
+    delete(tl);
 }
-void Catalogue::saveSpecific(const string depart, const string arrive) {
-    /*TrajetList * tl = new TrajetList();
+void Catalogue::saveSpecific(const string depart, const string arrive, const char *nomfichier) {
+    TrajetList * tl = new TrajetList();
     Node *current = this->head;
     while ( current != nullptr )
     {
@@ -163,10 +163,10 @@ void Catalogue::saveSpecific(const string depart, const string arrive) {
         }
         current = current->next;
     }
-    // tl->output();
-    delete(tl);*/
+    tl->OutputFile( nomfichier );
+    delete(tl);
 }
-void Catalogue::saveInterval(int n, int m) {
+void Catalogue::saveInterval(int n, int m ,const char *nomfichier) {
     TrajetList * tl = new TrajetList();
     int counter = 0;
     Node *current = this->head;
@@ -178,7 +178,7 @@ void Catalogue::saveInterval(int n, int m) {
         counter++;
         current = current->next;
     }
-    // tl->output();
+    tl->OutputFile( nomfichier );
     delete(tl);
 }
 /* Méthode restituant les trajets à partir d'un fichier dont le nom est passé en paramètre */
@@ -186,7 +186,7 @@ void Catalogue::restituerTrajets ( const char *nomfichier )
 {
     ifstream fluxlecture;
     fluxlecture.open(nomfichier);
-        
+
     if (fluxlecture) {
         for (string ligne; getline(fluxlecture, ligne);) {
             auto start = 0;
