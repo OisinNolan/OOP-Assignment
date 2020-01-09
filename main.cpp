@@ -56,10 +56,8 @@ int main()
                 cout << endl;
                 break;
             case 6:
-<<<<<<< HEAD
                 //catalogue->saveType("TS");
                 catalogue->OutputFile();
-=======
                 catalogue->saveInterval(2, 4);
                 break;
             case 7:
@@ -67,7 +65,6 @@ int main()
                 cout << "Donner le nom du fichier à lire : ";
                 cin >> nomFichier;
                 catalogue->restituerTrajets(nomFichier);
->>>>>>> refs/remotes/origin/master
                 break;
             default:
                 cout << "choix incorrect" << endl;

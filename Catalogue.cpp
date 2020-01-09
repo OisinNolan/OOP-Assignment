@@ -185,7 +185,7 @@ void Catalogue::saveInterval(int n, int m) {
 void Catalogue::restituerTrajets ( const char *nomfichier )
 {
     ifstream fluxlecture;
-    fluxlecture.open("fichier.trajets");
+    fluxlecture.open(nomfichier);
         
     if (fluxlecture) {
         for (string ligne; getline(fluxlecture, ligne);) {
@@ -193,7 +193,6 @@ void Catalogue::restituerTrajets ( const char *nomfichier )
             auto end = ligne.find("#", start);
             string typeTrajet = ligne.substr(start, end);
             start = typeTrajet.length() + 1;
-            cout << typeTrajet << endl;
             if (typeTrajet == "TS") {
                 string attributs[3];
                 int i = 0;
@@ -205,17 +204,22 @@ void Catalogue::restituerTrajets ( const char *nomfichier )
                 }
                 this->ajouterQueue(new TrajetSimple(attributs[0].c_str(), attributs[1].c_str(), attributs[2].c_str()));
             } else {
-                string attribut;
+                TrajetList *trajets = new TrajetList();
+                string attributs[3];
+                int i = 0;
                 while (end != ligne.length() - 1) {
                     end = ligne.find(":", start);
-                    string attribut = ligne.substr(start, end - start);
-                    start += attribut.length() + 1;
-                    cout << attribut << endl;
+                    attributs[i] = ligne.substr(start, end - start);
+                    start += attributs[i].length() + 1;
+                    i++;
                     if (end + 1 == ligne.find("&", start)) {
                         start++;
-                        cout << "---" << endl;
+                        i = 0;
+                        trajets->ajouterQueue(new TrajetSimple(attributs[0].c_str(), attributs[1].c_str(), attributs[2].c_str()));
                     }
                 }
+                trajets->ajouterQueue(new TrajetSimple(attributs[0].c_str(), attributs[1].c_str(), attributs[2].c_str()));
+                this->ajouterQueue(new TrajetCompose(trajets));
             }
         }
     } else {
