@@ -1,6 +1,7 @@
 #include "Catalogue.h"
 
 #include <iostream>
+#include <cstring>
 using namespace std;
 
 int main()
@@ -56,11 +57,52 @@ int main()
                 cout << endl;
                 break;
             case 6:
+
                 char nomFichierW[100];
                 cout << "Donner le nom du fichier à écrire : ";
                 cin >> nomFichierW;
-                catalogue->OutputFile(nomFichierW);
-                catalogue->saveInterval(2, 4);
+
+                cout << "\t10: sauvegarder tout" << endl;
+                cout << "\t11: sauvegarder par type" << endl;
+                cout << "\t12: sauvegarder par vd/va" << endl;
+                cout << "\t13: sauvegarder l'interval" << endl;
+                int choixS;
+                scanf("%d", &choixS);
+                switch(choixS)
+                {
+                    case 10:
+                        catalogue->OutputFile(nomFichierW);
+                        break;
+                    case 11:
+                        {
+                        string type = "";
+                        cout << "TS ou TC? ";
+                        cin >> type;
+                        catalogue->saveType( type,nomFichierW );
+                        break;
+                        }
+                    case 12:
+                        char villeDepartS[100];
+                        char villeArriveeS[100];
+                        cout << "Ville de départ : ";
+                        cin >> villeDepartS;
+                        cout << "Ville d'arrivée : ";
+                        cin >> villeArriveeS;
+                        catalogue->saveSpecific(villeDepartS,villeArriveeS,nomFichierW);
+                        break;
+                    case 13:
+                        int start;
+                        int end;
+                        cout << "Donner debut d'interval : ";
+                        cin >> start;
+                        cout << "Donner fin d'interval : ";
+                        cin >> end;
+                        catalogue->saveInterval(start,end,nomFichierW  );
+                        break;
+                    default:
+                        catalogue->OutputFile(nomFichierW);
+                        break;
+                }
                 break;
             case 7:
                 char nomFichier[100];
