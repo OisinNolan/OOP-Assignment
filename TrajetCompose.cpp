@@ -53,7 +53,7 @@ string TrajetCompose::name() const {
 
 const string TrajetCompose::format()
 {
-    string s = "TC#";
+    string s = "";
     s += trajets->getFormat();
     return s;
 }

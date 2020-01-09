@@ -119,17 +119,19 @@ void TrajetList::destroy ( Node *node )
         delete old;
     }
 }
-void TrajetList::OutputFile()
+void TrajetList::OutputFile( const char *nomfichier )
 {
-    /*ofstream myfile;
-    myfile.open ("example.txt");
+    ofstream myfile;
+    myfile.open (nomfichier);
     Node *current = this->head;
     while ( current != nullptr )
     {
+        myfile << current->trajet->name();
+        myfile << "#";
         myfile << current->trajet->format();
         myfile << endl;
         current = current->next;
-    }*/
+    }
 }
 
 string TrajetList::getFormat()
@@ -139,7 +141,7 @@ string TrajetList::getFormat()
     while ( current != nullptr )
     {
         s += current->trajet->format();
-        s += "&";
+        if( current->next != nullptr )s += "&";
         current = current->next;
     }
 

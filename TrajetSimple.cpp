@@ -74,7 +74,7 @@ const string TrajetSimple::format()
     string vd(villeDepart);
     string va(villeArrivee);
     string mt(modeTransport);
-    string s = "TS#" + vd + ":" + va +":" + mt + ":";
+    string s = vd + ":" + va +":" + mt + ":";
     //+":"+str(villeArrivee)+":"+str(modeTransport)+":"
 
 
