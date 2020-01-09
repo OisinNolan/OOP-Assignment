@@ -12,12 +12,10 @@
 
 //--------------------------------------------------- Interfaces utilisées
 
-<<<<<<< HEAD
 #include <string>
 using namespace std;
 
-=======
->>>>>>> refs/remotes/origin/master
+
 //------------------------------------------------------------- Constantes
 
 //------------------------------------------------------------------ Types
@@ -40,12 +38,12 @@ public:
     virtual void afficher (  );
     virtual const char * getVilleDepart (  );
     virtual const char * getVilleArrivee (  );
-<<<<<<< HEAD
+
     virtual std::string name() const;
     virtual const string format();
-=======
+
     //virtual std::string name() const;
->>>>>>> refs/remotes/origin/master
+
 
 //------------------------------------------------- Surcharge d'opérateurs
 
