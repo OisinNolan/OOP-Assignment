@@ -45,7 +45,7 @@ public:
     void saveType( const std::string t , const char *nomfichier);
     void saveSpecific( const std::string depart, const std::string arrive , const char *nomfichier);
     void saveInterval(int n, int m , const char *nomfichier);
-    void restituerTrajets ( const char *nomfichier );
+    void restituerTrajets ( const char *nomfichier, int option );
 
 //------------------------------------------------- Surcharge d'opérateurs
 

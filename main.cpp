@@ -108,11 +108,34 @@ int main()
                 char nomFichier[100];
                 cout << "Donner le nom du fichier à lire : ";
                 cin >> nomFichier;
-                catalogue->restituerTrajets(nomFichier);
+                cout << "Choissisez le scénario : " << endl;
+                cout << "\t1: sans critère de séléction" << endl;
+                cout << "\t2: selon le type des trajets" << endl;
+                cout << "\t3: selon la ville de départ et/ou la ville d'arrivée" << endl;
+                cout << "\t4: selon une séléction de trajets" << endl;
+                cout << "\t0: annuler la restitution" << endl;
+                int scenario;
+                scanf("%d", &scenario);
+                switch(scenario) {
+                    case 0:
+                        break;
+                    case 1:
+                        catalogue->restituerTrajets(nomFichier, 1);
+                        break;
+                    case 2:
+                        catalogue->restituerTrajets(nomFichier, 2);
+                        break;
+                    case 3:
+                        catalogue->restituerTrajets(nomFichier, 3);
+                        break;
+                    case 4:
+                        catalogue->restituerTrajets(nomFichier, 4);
+                        break;
+                }
                 break;
             default:
                 cout << "choix incorrect" << endl;
-                continue ;
+                continue;
         }
     }
     fin:

@@ -15,6 +15,7 @@
 using namespace std;
 #include <cstring>
 #include <fstream>
+#include <climits>
 
 //------------------------------------------------------ Include personnel
 #include "TrajetSimple.h"
@@ -182,45 +183,112 @@ void Catalogue::saveInterval(int n, int m ,const char *nomfichier) {
     delete(tl);
 }
 /* Méthode restituant les trajets à partir d'un fichier dont le nom est passé en paramètre */
-void Catalogue::restituerTrajets ( const char *nomfichier )
+void Catalogue::restituerTrajets ( const char *nomfichier, int option )
 {
     ifstream fluxlecture;
     fluxlecture.open(nomfichier);
 
     if (fluxlecture) {
-        for (string ligne; getline(fluxlecture, ligne);) {
-            auto start = 0;
-            auto end = ligne.find("#", start);
-            string typeTrajet = ligne.substr(start, end);
-            start = typeTrajet.length() + 1;
-            if (typeTrajet == "TS") {
-                string attributs[3];
-                int i = 0;
-                while (end != ligne.length() - 1) {
-                    end = ligne.find(":", start);
-                    attributs[i] = ligne.substr(start, end - start);;
-                    start += attributs[i].length() + 1;
-                    i++;
+        if (option == 1 || option == 2 || option == 3 || option == 4) {
+            int choixtypetrajet = 3;
+            if (option == 2) {
+                cout << "Choissisez le type des trajets à restituer : " << endl;
+                cout << "\t1: trajet simple" << endl;
+                cout << "\t2: trajet composé" << endl;
+                cout << "\t3: tous les types" << endl;
+                cout << "\t0: annuler la restitution" << endl;
+                scanf("%d", &choixtypetrajet);
+                if (choixtypetrajet == 0) {
+                    return;
                 }
-                this->ajouterQueue(new TrajetSimple(attributs[0].c_str(), attributs[1].c_str(), attributs[2].c_str()));
-            } else {
-                TrajetList *trajets = new TrajetList();
-                string attributs[3];
-                int i = 0;
-                while (end != ligne.length() - 1) {
-                    end = ligne.find(":", start);
-                    attributs[i] = ligne.substr(start, end - start);
-                    start += attributs[i].length() + 1;
-                    i++;
-                    if (end + 1 == ligne.find("&", start)) {
-                        start++;
-                        i = 0;
-                        trajets->ajouterQueue(new TrajetSimple(attributs[0].c_str(), attributs[1].c_str(), attributs[2].c_str()));
+            }
+            int choixvillestrajet = 4;
+            char villeDepart[100];
+            char villeArrivee[100];
+            if (option == 3) {
+                cout << "Spécifiez : " << endl;
+                cout << "\t1: selon la ville de départ" << endl;
+                cout << "\t2: selon la ville d'arrivée" << endl;
+                cout << "\t3: selon la ville de départ et d'arrivée" << endl;
+                cout << "\t4: peu importe" << endl;
+                cout << "\t0: annuler la restitution" << endl;
+                scanf("%d", &choixvillestrajet);
+                if (choixvillestrajet == 0) {
+                    return;
+                }
+                switch (choixvillestrajet) {
+                    case 0:
+                        return;
+                    case 1:
+                        cout << "Ville de départ : ";
+                        cin >> villeDepart;
+                        break;
+                    case 2:
+                        cout << "Ville d'arrivée : ";
+                        cin >> villeArrivee;
+                        break;
+                    case 3:
+                        cout << "Ville de départ : ";
+                        cin >> villeDepart;
+                        cout << "Ville d'arrivée : ";
+                        cin >> villeArrivee;
+                        break;
+                }
+            }
+            int lignedebut = 0;
+            int lignefin = INT_MAX;
+            if (option == 4) {
+                cout << "Donnez le numéro du premier trajet à restituer : ";
+                scanf("%d", &lignedebut);
+                cout << "Donnez le numéro du dernier trajet à restituer : ";
+                scanf("%d", &lignefin);
+                while (lignefin < lignedebut) {
+                    cout << "L'intervalle doit contenir au moins un élément !";
+                    scanf("%d", &lignefin);
+                }
+            }
+            int compteurligne = 0;
+            for (string ligne; getline(fluxlecture, ligne);) {
+                auto start = 0;
+                auto end = ligne.find("#", start);
+                string typeTrajet = ligne.substr(start, end);
+                start = typeTrajet.length() + 1;
+                if (typeTrajet == "TS" && (choixtypetrajet == 1 || choixtypetrajet == 3)) {
+                    string attributs[3];
+                    int i = 0;
+                    while (end != ligne.length() - 1) {
+                        end = ligne.find(":", start);
+                        attributs[i] = ligne.substr(start, end - start);;
+                        start += attributs[i].length() + 1;
+                        i++;
+                    }
+                    if (((choixvillestrajet == 1 && strcmp(villeDepart, attributs[0].c_str()) == 0) || (choixvillestrajet == 2 && strcmp(villeArrivee, attributs[1].c_str()) == 0) || (choixvillestrajet == 3 && strcmp(villeDepart, attributs[0].c_str()) == 0 && strcmp(villeArrivee, attributs[1].c_str()) == 0) || choixvillestrajet == 4) && compteurligne >= lignedebut && compteurligne <= lignefin) {
+                        this->ajouterQueue(new TrajetSimple(attributs[0].c_str(), attributs[1].c_str(), attributs[2].c_str()));
+                    }
+                } else if (typeTrajet == "TC" && (choixtypetrajet == 2 || choixtypetrajet == 3)) {
+                    TrajetList *trajets = new TrajetList();
+                    string attributs[3];
+                    int i = 0;
+                    while (end != ligne.length() - 1) {
+                        end = ligne.find(":", start);
+                        attributs[i] = ligne.substr(start, end - start);
+                        start += attributs[i].length() + 1;
+                        i++;
+                        if (end + 1 == ligne.find("&", start)) {
+                            start++;
+                            i = 0;
+                            trajets->ajouterQueue(new TrajetSimple(attributs[0].c_str(), attributs[1].c_str(), attributs[2].c_str()));
+                        }
+                    }
+                    trajets->ajouterQueue(new TrajetSimple(attributs[0].c_str(), attributs[1].c_str(), attributs[2].c_str()));
+                    if (((choixvillestrajet == 1 && strcmp(villeDepart, trajets->premier()->getVilleDepart()) == 0) || (choixvillestrajet == 2 && strcmp(villeArrivee, trajets->dernier()->getVilleArrivee()) == 0) || (choixvillestrajet == 3 && strcmp(villeDepart, trajets->premier()->getVilleDepart()) == 0 && strcmp(villeArrivee, trajets->dernier()->getVilleArrivee()) == 0) || choixvillestrajet == 4) && compteurligne >= lignedebut && compteurligne <= lignefin) {
+                        this->ajouterQueue(new TrajetCompose(trajets));
                     }
                 }
-                trajets->ajouterQueue(new TrajetSimple(attributs[0].c_str(), attributs[1].c_str(), attributs[2].c_str()));
-                this->ajouterQueue(new TrajetCompose(trajets));
+                compteurligne++;
             }
+        } else {
+            cout << "ERREUR: Paramètre option n'a pas été spécifiée ou est faux !" << endl;        
         }
     } else {
         cout << "ERREUR: Impossible d'ouvrir le fichier en lecture !" << endl;
